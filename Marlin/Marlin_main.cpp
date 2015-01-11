@@ -544,6 +544,13 @@ void servo_init()
   #endif
 }
 
+void DS1000_init()
+{
+  pinMode(HEATER_BED_PIN_DS1000,OUTPUT);
+  pinMode(HEATER_BEDBASE_PIN_DS1000,OUTPUT);
+
+  WRITE(HEATER_BEDBASE_PIN_DS1000,HIGH);
+}
 
 void setup()
 {
@@ -606,6 +613,7 @@ void setup()
   #ifdef DIGIPOT_I2C
     digipot_i2c_init();
   #endif
+
 #ifdef Z_PROBE_SLED
   pinMode(SERVO0_PIN, OUTPUT);
   digitalWrite(SERVO0_PIN, LOW); // turn it off
@@ -613,6 +621,8 @@ void setup()
   setup_homepin();
 }
 
+  DS1000_init();
+}
 
 void loop()
 {
@@ -3772,6 +3782,18 @@ case 404:  //M404 Enter the nominal filament width (3mm, 1.75mm ) N<3.0> or disp
       gcode_LastN = Stopped_gcode_LastN;
       FlushSerialRequestResend();
     break;
+    case 1000:
+      digitalWrite(25, LOW);
+      break;
+    case 1001:
+      digitalWrite(25, HIGH);
+      break;
+    case 1010:
+      digitalWrite(27, LOW);
+      break;
+    case 1011:
+      digitalWrite(27, HIGH);
+      break;
     }
   }
 

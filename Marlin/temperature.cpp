@@ -618,7 +618,7 @@ void manage_heater()
       else
       {
         soft_pwm_bed = 0;
-        WRITE(HEATER_BED_PIN,LOW);
+        WRITE(HEATER_BED_PIN_DS1000,LOW);
       }
     #else //#ifdef BED_LIMIT_SWITCHING
       // Check if temperature is within the correct band
@@ -636,7 +636,7 @@ void manage_heater()
       else
       {
         soft_pwm_bed = 0;
-        WRITE(HEATER_BED_PIN,LOW);
+        WRITE(HEATER_BED_PIN_DS1000,LOW);
       }
     #endif
   #endif
@@ -1107,7 +1107,7 @@ void disable_heater()
     target_temperature_bed=0;
     soft_pwm_bed=0;
     #if defined(HEATER_BED_PIN) && HEATER_BED_PIN > -1  
-      WRITE(HEATER_BED_PIN,LOW);
+      WRITE(HEATER_BED_PIN_DS1000,LOW);
     #endif
   #endif 
 }
@@ -1140,7 +1140,7 @@ void min_temp_error(uint8_t e) {
 
 void bed_max_temp_error(void) {
 #if HEATER_BED_PIN > -1
-  WRITE(HEATER_BED_PIN, 0);
+  WRITE(HEATER_BED_PIN_DS1000,LOW);
 #endif
   if(IsStopped() == false) {
     SERIAL_ERROR_START;
@@ -1254,7 +1254,7 @@ ISR(TIMER0_COMPB_vect)
     #endif
     #if defined(HEATER_BED_PIN) && HEATER_BED_PIN > -1
     soft_pwm_b = soft_pwm_bed;
-    if(soft_pwm_b > 0) WRITE(HEATER_BED_PIN,1); else WRITE(HEATER_BED_PIN,0);
+    if(soft_pwm_b > 0) WRITE(HEATER_BED_PIN_DS1000,1); else WRITE(HEATER_BED_PIN_DS1000,0);
     #endif
     #ifdef FAN_SOFT_PWM
     soft_pwm_fan = fanSpeedSoftPwm / 2;
@@ -1274,7 +1274,7 @@ ISR(TIMER0_COMPB_vect)
   if(soft_pwm_2 < pwm_count) WRITE(HEATER_2_PIN,0);
   #endif
   #if defined(HEATER_BED_PIN) && HEATER_BED_PIN > -1
-  if(soft_pwm_b < pwm_count) WRITE(HEATER_BED_PIN,0);
+  if(soft_pwm_b < pwm_count) WRITE(HEATER_BED_PIN_DS1000,0);
   #endif
   #ifdef FAN_SOFT_PWM
   if(soft_pwm_fan < pwm_count) WRITE(FAN_PIN,0);

@@ -641,7 +641,7 @@
       #define E2_DIR_PIN         25
       #define E2_ENABLE_PIN      40
 
-      #define E3_STEP_PIN        27
+      #define E3_STEP_PIN        -1
       #define E3_DIR_PIN         29
       #define E3_ENABLE_PIN      41
 
@@ -762,8 +762,8 @@
       #define LCD_PINS_RS 16
       #define LCD_PINS_ENABLE 17
       #define LCD_PINS_D4 23
-      #define LCD_PINS_D5 25
-      #define LCD_PINS_D6 27
+      #define LCD_PINS_D5 -1
+      #define LCD_PINS_D6 -1
       #define LCD_PINS_D7 29
 
       #ifdef REPRAP_DISCOUNT_SMART_CONTROLLER
@@ -816,7 +816,7 @@
       #if MB(3DRAG)
         #define BEEPER -1
 
-        #define LCD_PINS_RS 27
+        #define LCD_PINS_RS -1
         #define LCD_PINS_ENABLE 29
         #define LCD_PINS_D4 37
         #define LCD_PINS_D5 35
@@ -843,8 +843,8 @@
       #define LCD_PINS_RS 16
       #define LCD_PINS_ENABLE 17
       #define LCD_PINS_D4 23
-      #define LCD_PINS_D5 25
-      #define LCD_PINS_D6 27
+      #define LCD_PINS_D5 -1
+      #define LCD_PINS_D6 -1
       #define LCD_PINS_D7 29
     #endif
   #endif //ULTRA_LCD
@@ -2967,4 +2967,8 @@ DaveX plan for Teensylu/printrboard-type pinouts (ref teensylu & sprinter) for a
                         _E0_PINS _E1_PINS _E2_PINS             \
                         analogInputToDigitalPin(TEMP_0_PIN), analogInputToDigitalPin(TEMP_1_PIN), analogInputToDigitalPin(TEMP_2_PIN), analogInputToDigitalPin(TEMP_BED_PIN) }
 
+#define HEATER_BED_PIN_DS1000 25
+#define HEATER_BEDBASE_PIN_DS1000 27
+
 #endif //__PINS_H
+

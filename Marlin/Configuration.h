@@ -45,7 +45,7 @@
 #endif
 
 // Define this to set a custom name for your generic Mendel,
-#define CUSTOM_MENDEL_NAME "DS1000V1_002"
+#define CUSTOM_MENDEL_NAME "DS1100P_003"
 
 // Define this to set a unique identifier for this printer, (Used by some programs to differentiate between machines)
 // You can use an online service to generate a random UUID. (eg http://www.uuidgenerator.net/version4)
@@ -168,7 +168,7 @@
 #define HEATER_0_MAXTEMP 350
 #define HEATER_1_MAXTEMP 350
 #define HEATER_2_MAXTEMP 350
-#define BED_MAXTEMP 100
+#define BED_MAXTEMP 120
 
 // If your bed has low resistance e.g. .6 ohm and throws the fuse you can duty cycle it to reduce the
 // average current. The value should be an integer and the heat bed will be turned on for 1 interval of
