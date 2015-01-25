@@ -619,7 +619,6 @@ void setup()
   digitalWrite(SERVO0_PIN, LOW); // turn it off
 #endif // Z_PROBE_SLED
   setup_homepin();
-}
 
   DS1000_init();
 }
